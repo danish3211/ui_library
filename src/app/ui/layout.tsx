@@ -7,7 +7,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <div className="w-[320px]">
             <Sidebar/>
         </div>
-        <div className="w-full">
+        <div className="h-[87vh] w-full backdrop-blur-sm bg-white/30 p-3 rounded-md">
         {children}
         </div>
     </div>

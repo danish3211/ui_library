@@ -48,7 +48,7 @@ import React from 'react'
 import dynamic from "next/dynamic";
 
 const DynamicLeafletMap = dynamic(() => import("../components/LeafletMap"), {
-  ssr: false, // Disable server-side rendering
+  ssr: false,
 });
 
 const hero = () => {

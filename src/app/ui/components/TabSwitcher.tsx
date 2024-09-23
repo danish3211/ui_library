@@ -1,3 +1,4 @@
+"use client"
 import CodeBlock from "@/components/CodeBlock";
 import React, { useState } from "react";
 interface TabSwitcherProps {
@@ -16,16 +17,16 @@ const TabSwitcher: React.FC<TabSwitcherProps> = ({
       <div className="flex w-[300px] rounded-full  backdrop-blur-sm ">
         <button
           onClick={() => setActiveTab("preview")}
-          className={`flex-1 p-3 text-center text-white font-bold rounded-full transition-colors duration-300 ${
+          className={`flex-1 p-3 text-center text-black font-bold rounded-full transition-colors duration-300 ${
             activeTab === "preview"
-              ? "bg-gray-900 "
+              ? "bg-[#ffffff73] "
               : "text-black"
           }`}> Preview</button>
         <button
           onClick={() => setActiveTab("code")}
-          className={`flex-1 p-3 text-center text-white font-bold rounded-full transition-colors duration-300 ${
+          className={`flex-1 p-3 text-center text-black font-bold rounded-full transition-colors duration-300 ${
             activeTab === "code"
-              ? "bg-gray-900"
+              ? "bg-[#ffffff73]"
               : "text-black"
           }`}>Code</button>
       </div>

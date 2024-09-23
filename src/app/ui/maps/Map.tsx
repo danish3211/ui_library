@@ -1,10 +1,23 @@
-"use client";
+import React from "react";
+import TabSwitcher from "../components/TabSwitcher";
+import dynamic from "next/dynamic";
+const DynamicLeafletMap = dynamic(() => import("../components/LeafletMap"), {
+  ssr: false,
+});
+const ExampleComponent = () => {
+  return (
+    <div>
+      <DynamicLeafletMap />
+    </div>
+  );
+};
+
+const codeExample = `"use client";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import L from "leaflet";
-
 
 const locationIcon = L.icon({
   iconUrl: "/location-pin.png", 
@@ -19,15 +32,16 @@ interface SearchBoxProps {
 
 const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
   const [query, setQuery] = useState("");
-
-  const handleSearch = async () => {
+  
+   const handleSearch = async () => {
     if (!query) return;
 
-    try {
+      try {
       const response = await axios.get(
-        `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`
+        https://nominatim.openstreetmap.org/search?q=(dollarsign){query}&format=json&limit=1 //add a backtik around 
       );
 
+      
       if (response.data.length > 0) {
         const location = response.data[0];
         const lat = parseFloat(location.lat);
@@ -42,7 +56,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
     }
   };
 
-  return (
+   return (
     <div>
       <input
         type="text"
@@ -118,3 +132,23 @@ const LeafletMap = () => {
 };
 
 export default LeafletMap;
+
+  `;
+const Map = () => {
+  return (
+    <div>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-6">
+          Custom Tab Switcher with Preview and Code
+        </h1>
+        <TabSwitcher
+          language="typescript"
+          codeString={codeExample}
+          previewComponent={<ExampleComponent />}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Map;
