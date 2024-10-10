@@ -1,12 +1,13 @@
 import React from "react";
-import TabSwitcher from "../components/TabSwitcher";
+import TabSwitcher from "../../../components/TabSwitcher";
 import dynamic from "next/dynamic";
-const DynamicLeafletMap = dynamic(() => import("../components/LeafletMap"), {
+import CodeBlock from "@/components/CodeBlock";
+const DynamicLeafletMap = dynamic(() => import("../../../components/LeafletMap"), {
   ssr: false,
 });
 const ExampleComponent = () => {
   return (
-    <div>
+    <div className="bg-white">
       <DynamicLeafletMap />
     </div>
   );
@@ -131,20 +132,28 @@ const LeafletMap = () => {
   );
 };
 
-export default LeafletMap;
+export default LeafletMap;`;
 
-  `;
+  const npm =  `npm install react-leaflet leaflet`
 const Map = () => {
   return (
     <div>
-      <div className="p-5">
-        <h1 className="text-2xl font-bold mb-6">
-          Custom Tab Switcher with Preview and Code
-        </h1>
+      <div>
         <TabSwitcher
-          language="typescript"
+          language="tsx"
           codeString={codeExample}
           previewComponent={<ExampleComponent />}
+          description = {
+            <>
+            <div className="text-white">
+                <p className="text-xl font-bold">1. Install Dependencies</p>
+                <p className="text-lg">First, install react-leaflet and leaflet packages:</p>
+                <CodeBlock codeString={npm} language="bash" />
+                 <p className="text-xl font-bold">2. Create a Map Component</p>
+                <p className="text-lg">Create a component for your map, e.g., LeafletMap.tsx in your components folder:</p>
+            </div>
+            </>
+          }
         />
       </div>
     </div>

@@ -16,7 +16,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ codeString, language }) => {
   return (
     <div className="relative">
       <div className="flex justify-between items-center -mb-[10px] px-5 w-full backdrop-blur-sm bg-gray-500">
-        <p className="">{language}</p>
+        <p className="text-white">{language}</p>
         <button className=" rounded-md p-2 text-white" onClick={handleCopy}>
           {copied ? "Copied!" : "Copy"}
         </button>

@@ -9,7 +9,7 @@ const HomePage = () => {
       </p>
       <div  className="flex gap-8 mt-2 ">  
       <Link 
-      href="/ui"
+      href="/ui/code"
       className="bg-sky-700 text-center p-3 rounded-md text-white text-xl w-[200px] hover:bg-sky-900 transition delay-100">
         Components
       </Link>  

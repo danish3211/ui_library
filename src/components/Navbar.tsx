@@ -7,8 +7,6 @@ const Navbar = () => {
       <Link href="/" className='backdrop-blur-sm bg-white/30 rounded-md p-2'>
       Danish&apos;s Ui Components
       </Link>
-    {/* <span className='font-extrabold text-3xl'
-    style={{ animation: 'pulseFast 0.5s infinite' }}>|</span> */}
     </div>
   )
 }
