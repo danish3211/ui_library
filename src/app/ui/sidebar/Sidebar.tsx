@@ -75,8 +75,8 @@ const Onclose = () => {
   };
 
   const handleMenuClick = (e: React.MouseEvent, title: string) => {
-    e.preventDefault(); // Prevent default behavior to avoid scrolling
-    setActiveMenuTitle(title); // Update active menu title
+    e.preventDefault();
+    setActiveMenuTitle(title);
   };
 
   const pathname = usePathname();
